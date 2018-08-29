@@ -31,8 +31,8 @@ class App extends Component {
       responseJson.data.forEach(function(gif){
         gifs.push({
         gif: gif.images.fixed_height.url,
-        rating: gif.rating,
-        source: gif.source_post_url
+        rating: gif.rating.toUpperCase(),
+        username: gif.username
         });
       })
       
@@ -50,10 +50,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Giphy Search</h1>
-        </header>
-
+        <div className="Header">
+         <h1>Giphy Search</h1>
+         </div>
         <div className="searchBar">
        <Search searchGiphy={this.searchGiphy}/>
         </div>
@@ -63,8 +62,8 @@ class App extends Component {
           this.state.results.map((gif, index) => {
             return (
               <Collapsible trigger={<Results key={index} gifContent={gif.gif}/> }>
-              <p>Rating:{gif.rating}</p>
-              <p>Source: {gif.source}</p>
+              <p>Rating: {gif.rating}</p>
+              <p>Username: {gif.username}</p>
               </Collapsible>
             )
           })

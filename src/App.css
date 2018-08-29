@@ -1,7 +1,12 @@
 body {
+  display: flex;
+  justify-content: center;
   font-family: 'Sawarabi Mincho', sans-serif;
+  color: black;
   background-image: linear-gradient(to right, teal , aquamarine);
+  padding: .5%
 }
+
 
 .results {
   display: grid;
@@ -9,3 +14,24 @@ body {
   grid-gap: 3px;
   grid-auto-rows: minmax(100px, auto);
 }
+
+
+.Collapsible__contentInner {
+  padding: 10px;
+  border: 3px solid lightgray;
+  border-top: 0;
+}
+
+.Collapsible__trigger {
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  border: 3px solid lightgray;
+  padding: 10px;
+  color: black;
+}
+
+

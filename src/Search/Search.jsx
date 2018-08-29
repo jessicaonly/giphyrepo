@@ -35,7 +35,8 @@ class Search extends Component{
         onChange={this.handleUserInput}
       />
       <button className="searchButton"
-      onClick={this.sendSearch}>Search</button>
+      onClick={this.sendSearch}><i class="fas fa-search"></i>
+    </button>
       </div>
     )
   }
