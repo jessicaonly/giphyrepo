@@ -21,6 +21,9 @@ class Search extends Component{
   sendSearch(){
     console.log(this.props);
     this.props.searchGiphy(this.state.newSearchContent);
+    this.setState({
+      newSearchContent: ''
+    })
   }
 
   render(){

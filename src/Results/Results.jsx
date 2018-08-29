@@ -11,11 +11,6 @@ class Results extends Component{
     }
 
     this.gifContent = props.gifContent;
-    this.toggleExpandedGif = this.toggleExpandedGif.bind(this);
-}
-
-toggleExpandedGif(){
-  this.setState({expandedGif: !this.state.expandedGif})
 }
 
 

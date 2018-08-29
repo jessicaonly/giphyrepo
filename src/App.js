@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Collapsible from 'react-collapsible';
 
+import './App.css';
+
 import Results from './Results/Results';
 import Search from './Search/Search';
 
@@ -13,21 +15,27 @@ class App extends Component {
     this.searchGiphy = this.searchGiphy.bind(this);
 
     this.state={
-      results: []
+      results: [],
     }
   }
 
-
  searchGiphy(search){
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}&limit=5`)
+    this.setState({results: []});
+    fetch(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}&limit=15`)
     .then((response)=>{
       return response.json();
     })
     .then((responseJson) => {
       let gifs = [];
+      let gifObj = {};
       responseJson.data.forEach(function(gif){
-        gifs.push(gif.images.original.url);
+        gifs.push({
+        gif: gif.images.fixed_height.url,
+        rating: gif.rating,
+        source: gif.source_post_url
+        });
       })
+      
       console.log('Gifs:', gifs)
       this.setState({results: gifs})
     })
@@ -54,8 +62,9 @@ class App extends Component {
         {
           this.state.results.map((gif, index) => {
             return (
-              <Collapsible trigger={<Results key={index} gifContent={gif}/> }>
-              <p>Test test! </p>
+              <Collapsible trigger={<Results key={index} gifContent={gif.gif}/> }>
+              <p>Rating:{gif.rating}</p>
+              <p>Source: {gif.source}</p>
               </Collapsible>
             )
           })
