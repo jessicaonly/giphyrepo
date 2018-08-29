@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Collapsible from 'react-collapsible';
 
 import Results from './Results/Results';
 import Search from './Search/Search';
@@ -16,6 +17,7 @@ class App extends Component {
     }
 
   }
+
 
  searchGiphy(search){
     fetch(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}&limit=5`)
@@ -36,14 +38,28 @@ class App extends Component {
   )
   }
 
+
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Giphy Search</h1>
         </header>
+
+        <div className="searchBar">
        <Search searchGiphy={this.searchGiphy}/>
-       <Results />
+        </div>
+        
+        <div className="results">
+        {
+          this.state.results.map((gif, index) => {
+            return (
+              <Results gifContent={gif} key={index}/>
+            )
+          })
+        }
+      </div>
       </div>
     );
   }
