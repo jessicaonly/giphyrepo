@@ -18,6 +18,11 @@ class Search extends Component{
     })
   }
 
+  sendSearch(){
+    console.log(this.props);
+    this.props.searchGiphy(this.state.newSearchContent);
+  }
+
   render(){
     return(
       <div className="formWrapper">
