@@ -12,6 +12,12 @@ class Search extends Component{
     this.sendSearch = this.sendSearch.bind(this);
   }
 
+  handleUserInput(e){
+    this.setState({
+      newSearchContent: e.target.value //set new Search content as value of input
+    })
+  }
+
   render(){
     return(
       <div className="formWrapper">
