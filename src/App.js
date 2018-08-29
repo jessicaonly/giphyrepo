@@ -55,7 +55,7 @@ class App extends Component {
         {
           this.state.results.map((gif, index) => {
             return (
-              <Results gifContent={gif} key={index}/>
+              <Results key={index} gifContent={gif}/>
             )
           })
         }

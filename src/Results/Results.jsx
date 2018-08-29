@@ -13,7 +13,7 @@ class Results extends Component{
   render(props){
     return(
       <div className="gifs">
-      <p className="gifContent">{this.gifContent}</p>
+      <img className="gifContent" src={this.gifContent}></img>
       </div>
     )
   }
