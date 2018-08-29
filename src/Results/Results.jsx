@@ -5,14 +5,24 @@ import './Results.css'
 class Results extends Component{
   constructor(props){
     super(props);
+
+    this.state = {
+      expandedGif: false
+    }
+
     this.gifContent = props.gifContent;
+    this.toggleExpandedGif = this.toggleExpandedGif.bind(this);
+}
+
+toggleExpandedGif(){
+  this.setState({expandedGif: !this.state.expandedGif})
 }
 
 
 
   render(props){
     return(
-      <div className="gifs">
+      <div>
       <img className="gifContent" src={this.gifContent}></img>
       </div>
     )

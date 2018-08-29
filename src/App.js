@@ -15,7 +15,6 @@ class App extends Component {
     this.state={
       results: []
     }
-
   }
 
 
@@ -55,7 +54,9 @@ class App extends Component {
         {
           this.state.results.map((gif, index) => {
             return (
-              <Results key={index} gifContent={gif}/>
+              <Collapsible trigger={<Results key={index} gifContent={gif}/> }>
+              <p>Test test! </p>
+              </Collapsible>
             )
           })
         }
