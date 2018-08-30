@@ -28,9 +28,9 @@
 }
 
 .formWrapper{
-  width: 30%;
   position: absolute;
-  top: 5%;
+  width: 30%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

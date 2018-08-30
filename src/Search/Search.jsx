@@ -14,8 +14,8 @@ class Search extends Component{
 
   handleUserInput(e){
     this.setState({
-      newSearchContent: e.target.value //set new Search content as value of input
-    })
+      newSearchContent: e.target.value
+    });
   }
 
   sendSearch(){
@@ -23,25 +23,24 @@ class Search extends Component{
     this.props.searchGiphy(this.state.newSearchContent);
     this.setState({
       newSearchContent: ''
-    })
+    });
   }
 
   render(){
     return(
       <div className="formWrapper">
-      <input className="searchInput"
-        placeholder="Search Giphy!"
-        value={this.state.newSearchContent}
-        onChange={this.handleUserInput}
-      />
-      <button className="searchButton"
-      onClick={this.sendSearch}><i class="fas fa-search"></i>
-    </button>
+        <input className="searchInput"
+          placeholder="Search Giphy!"
+          value={this.state.newSearchContent}
+          onChange={this.handleUserInput}
+        />
+        <button className="searchButton"
+          onClick={this.sendSearch}><i class="fas fa-search"></i>
+        </button>
       </div>
-    )
-  }
+    );
+  };
 }
-
 
 
 export default Search;

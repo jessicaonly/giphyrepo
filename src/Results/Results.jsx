@@ -5,15 +5,8 @@ import './Results.css'
 class Results extends Component{
   constructor(props){
     super(props);
-
-    this.state = {
-      expandedGif: false
-    }
-
     this.gifContent = props.gifContent;
 }
-
-
 
   render(props){
     return(
@@ -22,10 +15,7 @@ class Results extends Component{
       </div>
     )
   }
-
 }
-
-
 
 
 export default Results;
